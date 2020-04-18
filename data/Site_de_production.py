@@ -1,5 +1,5 @@
 from data.sites_touristique import site
-class prod(site):
+class production(site):
     def __init__(self,zone,name,Lieu,INTR,theme,Visit):
         site.__init__(self,zone,name)
         self.Lieu=Lieu
