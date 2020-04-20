@@ -20,5 +20,5 @@ def interact():
             visite()
         elif l==5:
             intin()
-        else:
-            break
+        elif l > 5 and l < 1:
+            Print("Mauvais choix voici la liste dont vous pouvez choisir ^^")

@@ -56,20 +56,20 @@ else:
     LZ=[monument1,monument2,musee1,musee2,musee3,prod1,prod2,nature1,nature2]
 
 
-def th():
+def th():                           #on cree une liste qui contien tous les sites avec une theme
     L=[]
     for i in LZ:
         if hasattr(i,"theme"):
             L.append(i)
     return L
 
-def vis():
+def vis():                          #on cree une liste qui contien tous les sites avec une visite guidée
     L=[]
     for i in LZ:
-        if hasattr(i,"Visit"):
+        if hasattr(i,"Visit") and i.Visit=="Oui":
             L.append(i)
     return L
 
 LT= th()
 LV=vis()
-C=['musee','naturel','production','monument']
+C=['musee','naturel','production','monument'] #liste des categorie disponibles

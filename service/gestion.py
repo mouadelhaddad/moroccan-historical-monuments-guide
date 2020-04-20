@@ -3,7 +3,7 @@ import sys
 from exec.creation import *
 
 
-def str_to_class(classname):
+def str_to_class(classname):              #on convertie le nom d'une class vers le type class
     return getattr(sys.modules[__name__], classname)
 
 def affttsite():
@@ -19,8 +19,8 @@ def afftheme():
     for i in LT:
         O.append(i.theme)
     o1=list(set(O))
-    for i in range(len(o1)):
-        print("----theme :" + o1[i])
+    for i in o1:
+        print("----theme :" + i)
     print("Veuillez entrer un theme ^^")
     themeC = str(input())
     while(themeC not in O):
@@ -50,13 +50,12 @@ def cat():
 def visite():
     print("Voici les sites touristique qui proposent une visite guidée :")
     for i in LV:
-        if i.Visit=="Oui":
-            print("---site touristique :"+i.name)
+        print("---site touristique :"+i.name)
     print("-"*92)
     print("-"*92)
 
 
-def creation(T1,T2):                             #on cree une liste qui s'alterne entre nom du site et nombre octroie
+def creation(T1,T2):                             #on cree une liste qui s'alterne entre nom du site et nombre associe
     T3=[]
     for i in range(len(T1)):
         T3.append(T1[i])               #nom du site
@@ -70,14 +69,14 @@ def listToDict(lst):
 def intin():
     print("Veuillez preciser le nombre de sites a visiter : ")
     k=int(input())
-    dis=0
+    dis=0                                       #un compteur de distance
     l1=['Tour Hassan','Oudaya','Chellah','Le Muse Mohammed VI','Muse Belghazi','Muse Maroc Tlcom','Village de poterie Oulja','Ancienne Medina Rabat','Oued Bouregreg','Jardin exotique']
     l11=[i for i in range(len(l1))]
     l2=["Palais Bahia","Palais El Badie","Musée du parfum","Musée Dar si Said","Musée Berbère du jardin Majorelle","Souk Fekharine","Souk Zrabi","La vallée de l'Ourika","Cascades d’ouzoud"]
     l22=[i for i in range(len(l2))]
     l111=creation(l1,l11)
     l222=creation(l2,l22)
-    d1=listToDict(l111)
+    d1=listToDict(l111)        #par la fonction listToDict on va cree un dictionnaire avec les noms comme clef et les nombres comme valeur
     d2=listToDict(l222)
     s=[]
     if zone1.zone=="rabat-sale":
@@ -91,7 +90,7 @@ def intin():
                 print("Oups mauvais choix!! entrer une autre zone ^^")
                 char=str(input())
             s.append(char)
-        matrix= np.loadtxt('matrice1.txt', usecols=range(10))
+        matrix= np.loadtxt('matrice1.txt', usecols=range(10))  #on importe notre matrice a l'aide de numpy pour pouvoire faire des traitements
         for i in range(len(s)-1):
             dis+=matrix[d1[s[i]]][d1[s[i+1]]]
         print("la distance de cet intineraire est: " + str(dis) +"km")
